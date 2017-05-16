@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../MultiChoice/MultiChoice.css';
+import { Button } from 'react-bootstrap';
 
 class MultiChoice extends Component {
   render() {
@@ -11,7 +12,7 @@ class MultiChoice extends Component {
         {this.props.answers.map((answer, i) => <button className="btn btn-default button-styling" key={i} onClick={() => this.props.updateSelected(answer)}>{answer}</button>)}
         <br />
         <p className="spacing">You have selected: {this.props.selectedAnswer}</p>
-        <button className="btn btn-success" onClick={this.props.handleSubmit}>Submit</button>
+        <Button bsStyle="success" onClick={this.props.handleSubmit}>Submit</Button>
       </div>
     )
   }
