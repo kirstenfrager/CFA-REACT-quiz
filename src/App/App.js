@@ -44,7 +44,9 @@ class App extends Component {
 
   retryQuiz() {
     this.setState({
-      progress: 0
+      progress: 0,
+      selected: 'none yet!',
+      score: 0
     })
   };
 

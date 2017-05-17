@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../MultiChoice/MultiChoice.css';
+import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 
 class MultiChoice extends Component {
@@ -16,6 +17,13 @@ class MultiChoice extends Component {
       </div>
     )
   }
+};
+
+MultiChoice.propTypes = {
+  answers: PropTypes.array.isRequired,
+  updateSelected: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  selectedAnswer: PropTypes.string.isRequired
 };
 
 export default MultiChoice

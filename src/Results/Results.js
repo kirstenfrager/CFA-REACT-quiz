@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Results/Results.css';
 import { Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 class Results extends Component {
   render() {
@@ -12,6 +13,19 @@ class Results extends Component {
     </div>
     )
   }
+};
+
+// PropTypes exports a range of validators that can be used to make sure the data you receive is valid.
+// props are taken from App.js inside the brackets
+// You can chain `isRequired` to make sure a warning is shown if the prop isn't provided
+Results.propTypes = {
+  endMessage: PropTypes.string,
+  score: PropTypes.number.isRequired,
+  retryButton: PropTypes.func.isRequired
+};
+
+Results.defaultProps = {
+  endMessage: 'CONGRATULATIONS'
 };
 
 export default Results;
