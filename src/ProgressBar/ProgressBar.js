@@ -10,8 +10,7 @@ import CircularProgressbar from 'react-circular-progressbar';
 
 // stateless component
 const ProgressBar = ({ currentStep, questionLength }) => {
-  // return <p>{currentStep} out of {questionLength}</p>
-  return <CircularProgressbar percentage={this.state.progress + 1} questionLength={this.quiz_data.length} />
+  return <p>{currentStep} out of {questionLength}</p>
 };
 
 ProgressBar.propTypes = {

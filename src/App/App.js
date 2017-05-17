@@ -69,6 +69,17 @@ class App extends Component {
     }
   };
 
+  questionList(props) {
+    const questions = props.quiz_data.question;
+    const eachQuestion = questions.map((q) =>
+      <li>{q}</li>
+    );
+    return (
+      <ul>{eachQuestion}</ul>
+    );
+  }
+
+
   // series of components nested inside
   render() {
     return (
@@ -78,7 +89,7 @@ class App extends Component {
         {this.state.progress < this.quiz_data.length ? (
           <div>
             <Question currentQuestion={this.quiz_data[this.state.progress].question} />
-            <CircularProgressbar percentage={(this.state.progress) / this.quiz_data.length * 100} questionLength={this.quiz_data.length} />
+            <CircularProgressbar percentage={this.state.progress / this.quiz_data.length * 100} />
             <MultiChoice
               answers={this.quiz_data[this.state.progress].possible_answers}
               updateSelected={this.updateSelected}
@@ -89,7 +100,7 @@ class App extends Component {
         : (
         <div>
           <CircularProgressbar percentage={(this.state.progress) / this.quiz_data.length * 100} questionLength={this.quiz_data.length} />
-          <Results score={this.state.score} endMessage="Congratulations, you have finished!" retryButton={this.retryQuiz}/>
+          <Results score={this.state.score} endMessage="Congratulations, you have finished!" retryButton={this.retryQuiz} quizData={this.quiz_data}/>
         </div>
          )}
       </div>

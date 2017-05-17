@@ -7,9 +7,10 @@ class Results extends Component {
   render() {
     return (
       <div>
-        <h3 className="spacing">{this.props.endMessage}</h3>
+        <h3>{this.props.endMessage}</h3>
         <p className="score-size spacing">Your score was: <br/> <strong>{this.props.score}</strong></p>
         <Button bsStyle="primary" onClick={this.props.retryButton}>Retry</Button>
+        <p className="spacing">{this.props.quizData.map((quiz) => <p>{quiz.question}<br />Correct Answer: {quiz.correct_answer}</p>)}</p>
     </div>
     )
   }
