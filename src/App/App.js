@@ -4,6 +4,7 @@ import Question from '../Question/Question';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import MultiChoice from '../MultiChoice/MultiChoice';
 import Results from '../Results/Results';
+import CircularProgressbar from 'react-circular-progressbar';
 
 class App extends Component {
   constructor(props) {
@@ -77,7 +78,7 @@ class App extends Component {
         {this.state.progress < this.quiz_data.length ? (
           <div>
             <Question currentQuestion={this.quiz_data[this.state.progress].question} />
-            <ProgressBar currentStep={this.state.progress + 1} questionLength={this.quiz_data.length} />
+            <CircularProgressbar percentage={(this.state.progress) / this.quiz_data.length * 100} questionLength={this.quiz_data.length} />
             <MultiChoice
               answers={this.quiz_data[this.state.progress].possible_answers}
               updateSelected={this.updateSelected}
@@ -86,7 +87,10 @@ class App extends Component {
           </div>
         )
         : (
-        <Results score={this.state.score} endMessage="Congratulations, you have finished!" retryButton={this.retryQuiz}/>
+        <div>
+          <CircularProgressbar percentage={(this.state.progress) / this.quiz_data.length * 100} questionLength={this.quiz_data.length} />
+          <Results score={this.state.score} endMessage="Congratulations, you have finished!" retryButton={this.retryQuiz}/>
+        </div>
          )}
       </div>
     );

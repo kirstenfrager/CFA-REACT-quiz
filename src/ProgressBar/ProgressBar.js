@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CircularProgressbar from 'react-circular-progressbar';
 
 // class ProgressBar extends Component {
 //   render() {
@@ -9,7 +10,8 @@ import PropTypes from 'prop-types';
 
 // stateless component
 const ProgressBar = ({ currentStep, questionLength }) => {
-  return <p>{currentStep} out of {questionLength}</p>
+  // return <p>{currentStep} out of {questionLength}</p>
+  return <CircularProgressbar percentage={this.state.progress + 1} questionLength={this.quiz_data.length} />
 };
 
 ProgressBar.propTypes = {
